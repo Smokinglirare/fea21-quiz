@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 // Lös den oändliga loopen!
@@ -10,7 +10,7 @@ function Five() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    setCount(count => count + 1)
+    setCount(+ 1)
   }, [count])
 
   return (

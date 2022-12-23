@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
 // Den här komponenten har ett par stycken problem och
 // saknar några delar. Mer exakt: 5 stycken.
@@ -8,27 +8,33 @@ import React from 'react'
 // från dummyjson-apiet och skriva ut dennes namn.
 
 const Four = () => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   const getData = async (url) => {
-    const response = await fetch(url)
-    const data = response.json();
-  }
+    const response = await fetch(url);
+    return response.json();
+  };
 
   async function getUser() {
-    const user = getData("https://dummyjson.com/users/1")
-    setUser(user);
+    const data = await getData("https://dummyjson.com/users/1");
+    setUser(data);
   }
 
+  useEffect(() => {
+    getUser();
+  }, []);
 
   // Rör inte koden under denna kommentaren
   if (!user) {
-    return <div data-testid="four-name">No user found</div>
+    return <div data-testid="four-name">No user found</div>;
   }
 
-  return (
-    <div data-testid="four-name">My name is: {user.firstName}</div>
-  )
-}
+  return <div data-testid="four-name">My name is: {user.firstName}</div>;
+};
 
-export default Four
+export default Four;
+
+
+
+
+

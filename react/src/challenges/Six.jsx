@@ -9,20 +9,30 @@ import React, { useState } from 'react'
 
 function Six() {
   // Ändra inte statet nedan
-  const [input, setInput] = useState({})
+  const [input, setInput] = useState({});
 
   function handleInput(e) {
-    // Rör inte funktionen nedan
-    setInput(input => ({ ...input, [inputName]: value}))
+    const { name, value } = e.target;
+    setInput((prevInput) => ({ ...prevInput, [name]: value }));
   }
 
   return (
     <div>
-      <p data-testid="six-text">Hi, my name is: {input} {input}</p>
-      <input type="text" name="firstName" data-testid="six-firstName" />
-      <input type="text" name="lastName" data-testid="six-lastName" />
+      <p data-testid="six-text">Hi, my name is: {input.firstName} {input.lastName}</p>
+      <input
+        type="text"
+        name="firstName"
+        data-testid="six-firstName"
+        onChange={handleInput}
+      />
+      <input
+        type="text"
+        name="lastName"
+        data-testid="six-lastName"
+        onChange={handleInput}
+      />
     </div>
-  )
+  );
 }
 
 export default Six

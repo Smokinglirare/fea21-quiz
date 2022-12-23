@@ -7,7 +7,8 @@
 // arrayen men att den alltid är ojämnt lång (dvs: 1, 3, 7, 9, 13).
 
 const middle = (array) => {
-  // Skriv din kod här
+  if (array.length === 0) return undefined;
+  return array[Math.floor(array.length / 2)];
   
 }
 

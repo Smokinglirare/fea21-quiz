@@ -11,11 +11,18 @@ const Item = (props) => {
 // Använd komponenten Item för att skriva ut det
 // i items.map nedan.
 
-const Two = () => {
+const Two = (items) => {
+
+const hahaItems = items.items;
+console.log(hahaItems)
   return (
+
     <div>
       {
-        items.map()
+       hahaItems.map((item) => {
+         
+<p key={item.text}>{item.text}</p>
+        })
       }
     </div>
   );

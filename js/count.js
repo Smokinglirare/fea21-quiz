@@ -4,9 +4,13 @@
 // som anges som parameter till funktionen
 
 function count(string) {
-  // Skriv din kod här inne
+
+return string.length;
 
 }
+
+
+
 
 // Ändra inte dessa
 const result = count("ABCDEFG123")
